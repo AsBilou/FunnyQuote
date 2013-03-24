@@ -37,7 +37,7 @@ class funny_quotes_widget extends WP_Widget {
         $nbQuotes = $wpdb->query($query);
         $quotes = $wpdb->get_results($query);
 
-        $random = rand(0,$nbQuotes);
+        $random = rand(0,$nbQuotes-1);
         $quote = $quotes[$random];
 
         extract( $args );
