@@ -11,6 +11,7 @@ Version: 1.0
 require_once('funnyquotes-admin.php');
 require_once('funnyquotes-widget.php');
 
+//Fonction appelé a l'activation du plugin
 function funny_quotes_install(){
     //On recupere la variable global de Wordpress
     global $wpdb;
