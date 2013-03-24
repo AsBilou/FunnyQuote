@@ -1,14 +1,15 @@
 <?php
 
+//Ajout du widget a la liste des widgets
 add_action( 'widgets_init', create_function( '', 'register_widget( "funny_quotes_widget" );' ) );
 
 /**
- * Adds Foo_Widget widget.
+ * Cration d'une class pour le widget.
  */
 class funny_quotes_widget extends WP_Widget {
 
     /**
-     * Register widget with WordPress.
+     * Constructeur du plugin
      */
     public function __construct() {
         parent::__construct(
@@ -18,13 +19,8 @@ class funny_quotes_widget extends WP_Widget {
         );
     }
 
-    /**
-     * Front-end display of widget.
-     *
-     * @see WP_Widget::widget()
-     *
-     * @param array $args     Widget arguments.
-     * @param array $instance Saved values from database.
+    /*
+     * Affichage du widget sur la page.
      */
     public function widget( $args, $instance ) {
 
@@ -52,15 +48,8 @@ class funny_quotes_widget extends WP_Widget {
         echo $after_widget;
     }
 
-    /**
-     * Sanitize widget form values as they are saved.
-     *
-     * @see WP_Widget::update()
-     *
-     * @param array $new_instance Values just sent to be saved.
-     * @param array $old_instance Previously saved values from database.
-     *
-     * @return array Updated safe values to be saved.
+    /*
+     * Mise a jout du titre du widget
      */
     public function update( $new_instance, $old_instance ) {
         $instance = array();
@@ -69,12 +58,8 @@ class funny_quotes_widget extends WP_Widget {
         return $instance;
     }
 
-    /**
-     * Back-end widget form.
-     *
-     * @see WP_Widget::form()
-     *
-     * @param array $instance Previously saved values from database.
+    /*
+     * Encart administratif du widget.
      */
     public function form( $instance ) {
         if ( isset( $instance[ 'title' ] ) ) {
@@ -91,5 +76,5 @@ class funny_quotes_widget extends WP_Widget {
     <?php
     }
 
-} // class Foo_Widget
+}
 
